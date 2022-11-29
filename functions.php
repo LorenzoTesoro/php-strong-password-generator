@@ -1,7 +1,6 @@
 <?php
 /* Milestone 3 (BONUS)
-1 Gestire ulteriori parametri per la password: quali caratteri usare fra numeri, lettere e simboli.
-2- Possono essere scelti singolarmente (es. solo numeri) oppure possono essere combinati fra loro (es. numeri e simboli, oppure tutti e tre insieme). 3-Dare all’utente anche la possibilità di permettere o meno la ripetizione di caratteri uguali. */
+3-Dare all’utente anche la possibilità di permettere o meno la ripetizione di caratteri uguali. */
 
 //var_dump($_GET['repetition']);
 
@@ -43,5 +42,9 @@ function pass_generator($max_length)
 
     $shuffled = str_shuffle($random_password);
 
-    return mb_strimwidth($shuffled, 0, $max_length);
+    if ($_GET['repetition'] == '1') {
+        return mb_strimwidth($shuffled, 0, $max_length);
+    } elseif ($_GET['repetition'] == '2') {
+        return mb_strimwidth(count_chars($shuffled, 3), 0, $max_length);
+    }
 }

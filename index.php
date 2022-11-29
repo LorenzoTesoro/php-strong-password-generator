@@ -6,7 +6,6 @@ if (isset($_GET)) {
     echo pass_generator(($_GET['password_length']));
 }
 
-var_dump($_GET['letters']);
 
 ?>
 
